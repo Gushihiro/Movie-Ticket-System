@@ -11,12 +11,6 @@ export const metadata: Metadata = {
   description: 'Mock movie ticketing system to simulate purchasing tickets for movies currently in theaters.',
 }
 
-export const navLinks = [
-  "movies",
-  "theaters",
-  "concession"
-]
-
 export default function RootLayout({
   children,
 }: {
@@ -24,10 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={'flex flex-col items-center ' + inter.className}>
         <Navbar />
         {children}
-        </body>
+      </body>
     </html>
   )
 }
