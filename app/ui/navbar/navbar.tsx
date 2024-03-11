@@ -16,7 +16,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed w-full top-0 left-0">
+    <nav className="fixed w-full top-0 left-0 my-2">
       <div className="container mx-auto flex">
         <a
           className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
