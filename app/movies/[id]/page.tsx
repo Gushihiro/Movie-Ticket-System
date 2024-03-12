@@ -5,8 +5,10 @@ import Link from "next/link";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
+
   const selectedMovie: Movie = await getMovieById(id);
   console.log(selectedMovie, "Selected Movie");
+  console.log(selectedMovie.genres, "Genres");
   return (
     <main className={'container'}>
         <div className={'flex flex-row justify-center'}>
@@ -17,8 +19,16 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <div className={'text-8xl text-center'}>
                     {selectedMovie.title}
                 </div>
-                <div className={'text-end text-xs py-6'}>
+                <div className={'text-end text-xs py-4'}>
                     {selectedMovie.tagline}
+                </div>
+                <div className={'text-end text-xs py-2'}>
+                    Runtime: {selectedMovie.runtime} min
+                </div>
+                <div className={'text-end text-xs py-2 flex flex-col'}>
+                    {selectedMovie.genres.map((genre, index) => (
+                        <span key={index}>{genre.name}</span>
+                    ))}
                 </div>
                 <div className={'max-w-3xl py-10'}>
                     {selectedMovie.overview}
