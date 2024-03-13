@@ -19,19 +19,41 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <div className={'text-8xl text-center'}>
                     {selectedMovie.title}
                 </div>
-                <div className={'text-end text-xs py-4'}>
-                    {selectedMovie.tagline}
-                </div>
+                {selectedMovie.tagline ?
+                    <div className={'text-end text-xs py-4'}>
+                        {selectedMovie.tagline}
+                    </div> :
+                    ''
+                }
                 <div className={'text-end text-xs py-2'}>
                     Runtime: {selectedMovie.runtime} min
                 </div>
-                <div className={'text-end text-xs py-2 flex flex-col'}>
-                    {selectedMovie.genres.map((genre, index) => (
-                        <span key={index}>{genre.name}</span>
-                    ))}
+                <div className={'text-end text-xs py-2'}>
+                    <div className={'flex flex-col'}>
+                        {selectedMovie.genres.map((genre, index) => (
+                            <span key={index}> {genre.name} </span>
+                        ))}
+                    </div>
                 </div>
                 <div className={'max-w-3xl py-10'}>
                     {selectedMovie.overview}
+                </div>
+                <div className={'max-w-3xl py-10 flex flex-row-reverse'}>
+                    <span
+                        className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded
+                                   dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+                        07:30pm
+                    </span>
+                    <span
+                        className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded
+                                   dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+                        04:30pm
+                    </span>
+                    <span
+                        className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded
+                                   dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+                        02:00pm
+                    </span>
                 </div>
             </div>
         </div>
